@@ -153,18 +153,48 @@ npm install
 npm run dev
 ```
 
+### Available Scripts
+
+```bash
+npm run dev           # Start development server
+npm run build         # Production build
+npm run start         # Start production server
+npm run lint          # Run ESLint
+npm run lint:fix      # Fix ESLint issues
+npm run type-check    # TypeScript type checking
+npm run test          # Run type-check + lint
+```
+
+### CI/CD Pipeline
+
+This project includes a comprehensive GitHub Actions CI/CD pipeline:
+
+- 🔒 **Security Audits**: Automated vulnerability scanning
+- ✅ **Quality Checks**: TypeScript validation, ESLint, build testing
+- 🚀 **Auto Deployments**: Preview deployments for PRs, production on main
+- 📊 **Performance Monitoring**: Lighthouse CI integration
+- 🔄 **Dependency Updates**: Automated weekly dependency updates
+
+See [`CI-CD-SETUP.md`](./CI-CD-SETUP.md) for detailed setup instructions.
+
 ### Project Structure
 
 ```
 📦 Vaibhav-Dharmik/
-├── 📁 site/                 # Next.js 14 Portfolio
-│   ├── 📁 app/              # App Router pages
-│   ├── 📁 components/       # React components
-│   ├── 📁 data/            # Project data
-│   ├── 📁 public/          # Static assets
-│   └── 📄 package.json     # Dependencies
-├── 📄 README.md            # This file
-└── 📄 .gitignore          # Git ignore rules
+├── 📁 .github/workflows/   # GitHub Actions CI/CD
+│   ├── 📄 deploy.yml       # Main CI/CD pipeline
+│   ├── 📄 pr-checks.yml    # PR validation
+│   └── 📄 dependency-updates.yml
+├── 📁 site/                # Next.js 14 Portfolio
+│   ├── 📁 app/             # App Router pages
+│   ├── 📁 components/      # React components
+│   ├── 📁 data/           # Project data
+│   ├── 📁 public/         # Static assets
+│   ├── 📄 .lighthouserc.json # Performance config
+│   └── 📄 package.json    # Dependencies
+├── 📄 README.md           # This file
+├── 📄 CI-CD-SETUP.md      # CI/CD documentation
+└── 📄 .gitignore         # Git ignore rules
 ```
 
 ---
