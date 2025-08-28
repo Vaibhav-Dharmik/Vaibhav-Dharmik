@@ -120,7 +120,6 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
           working-directory: ${{ env.WORKING_DIRECTORY }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
           
       - name: Comment PR with preview URL
         if: github.event_name == 'pull_request'
@@ -167,7 +166,6 @@ jobs:
           vercel-project-id: ${{ secrets.PROJECT_ID }}
           vercel-args: '--prod'
           working-directory: ${{ env.WORKING_DIRECTORY }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
           
       - name: Create deployment status
         if: success()
