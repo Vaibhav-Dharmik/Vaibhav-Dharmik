@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Performance Dashboard",
+    "description": "A lightweight analytics UI showing real-time Web Vitals trends.",
+    "tech": ["TypeScript", "React", "Web Vitals"],
+    "url": "https://example.com/performance-dashboard"
+  },
+  {
+    "title": "Serverless Image Proxy",
+    "description": "Edge function that optimizes & caches images on-the-fly for responsive delivery.",
+    "tech": ["Node.js", "Edge", "CDN"],
+    "url": "https://example.com/image-proxy"
+  },
+  {
+    "title": "This Profile Repo",
+    "description": "Source for my GitHub profile README and Next.js + Tailwind portfolio site.",
+    "tech": ["Next.js", "Tailwind", "TypeScript"],
+    "url": "https://github.com/Vaibhav-Dharmik/Vaibhav-Dharmik"
+  }
+]
