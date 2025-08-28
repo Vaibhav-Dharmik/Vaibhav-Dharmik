@@ -36,42 +36,40 @@ Your repository now has a comprehensive CI/CD pipeline with the following workfl
 
 To enable automatic Vercel deployments, add these secrets to your GitHub repository:
 
-1. Go to your GitHub repository
+1. Go to your GitHub repository: `https://github.com/Vaibhav-Dharmik/Vaibhav-Dharmik`
 2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Add the following secrets:
+3. Click **New repository secret** for each of the following:
 
 ### Required Secrets:
 
 ```
-VERCEL_TOKEN          # Your Vercel API token
+VERCEL_TOKEN          # Your Vercel API token (get from step 1 below)
 ORG_ID                # Your Vercel organization ID
-PROJECT_ID            # Your Vercel project ID
+PROJECT_ID            # Your Vercel project ID  
 VERCEL_ORG_ID         # Your Vercel organization ID (same as ORG_ID)
 ```
 
-### How to get these values:
+### Step-by-Step Setup:
 
-1. **VERCEL_TOKEN**:
+#### 1. **Get VERCEL_TOKEN**:
+   - Go to: https://vercel.com/account/tokens
+   - Click **Create Token**
+   - Name: `GitHub Actions CI/CD`
+   - Scope: **Full Account**
+   - Expiration: **No Expiration** (or set to 1 year)
+   - Click **Create**
+   - Copy the token (starts with `vercel_...`)
 
+#### 2. **Get PROJECT_ID and ORG_ID**:
    ```bash
-   # Install Vercel CLI if not already installed
-   npm i -g vercel
-
-   # Login and get token
-   vercel login
-   # Go to https://vercel.com/account/tokens to create a token
-   ```
-
-2. **ORG_ID and PROJECT_ID**:
-
-   ```bash
-   # In your project directory
+   # In your site directory
    cd site
-   vercel link
-
-   # This creates .vercel/project.json with the IDs
    cat .vercel/project.json
    ```
+
+#### 3. **Add Secrets to GitHub**:
+   - Go to: https://github.com/Vaibhav-Dharmik/Vaibhav-Dharmik/settings/secrets/actions
+   - Add each secret with values from steps 1 & 2
 
 ## 📊 Performance Monitoring
 
@@ -126,9 +124,10 @@ npm run analyze       # Build with bundle analysis
 
 ## 📝 Next Steps
 
-1. **Add GitHub Secrets**: Set up the Vercel integration secrets
-2. **Test the Pipeline**: Create a PR to test the validation workflow
-3. **Monitor Performance**: Check Lighthouse reports after deployments
-4. **Review Dependencies**: Weekly automated dependency updates via PRs
+1. **Add GitHub Secrets**: Follow the setup guide above
+2. **Test Pipeline**: Create a PR to test workflows
+3. **Monitor**: Check deployments and performance reports
+
+Your CI/CD pipeline is ready! 🎉
 
 Your CI/CD pipeline is now ready for professional development! 🎉
