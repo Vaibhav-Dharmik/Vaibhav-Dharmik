@@ -1,4 +1,5 @@
 // app/page.tsx - Home page replicating static content with dynamic project cards.
+// Updated for CI/CD pipeline testing
 import projects from '@/data/projects.json';
 import ProjectCard from '@/components/ProjectCard';
 import Image from 'next/image';
