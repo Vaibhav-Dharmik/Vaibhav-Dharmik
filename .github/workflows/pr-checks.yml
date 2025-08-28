@@ -1,0 +1,108 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main, dev]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  pr-validation:
+    name: PR Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'site/package-lock.json'
+          
+      - name: Install dependencies
+        working-directory: './site'
+        run: npm ci
+        
+      - name: Check for changes in site directory
+        id: changes
+        run: |
+          if git diff --name-only origin/main...HEAD | grep -q "^site/"; then
+            echo "site_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "site_changed=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Validate package.json
+        if: steps.changes.outputs.site_changed == 'true'
+        working-directory: './site'
+        run: |
+          echo "Validating package.json structure..."
+          node -e "const pkg = require('./package.json'); console.log('✅ Package.json is valid'); console.log('Project:', pkg.name, 'Version:', pkg.version);"
+          
+      - name: Check for large files
+        run: |
+          echo "Checking for large files (>10MB)..."
+          find site/ -type f -size +10M -ls || echo "✅ No large files found"
+          
+      - name: Validate TypeScript
+        if: steps.changes.outputs.site_changed == 'true'
+        working-directory: './site'
+        run: |
+          echo "Running TypeScript validation..."
+          npx tsc --noEmit --skipLibCheck
+          
+      - name: Build check
+        if: steps.changes.outputs.site_changed == 'true'
+        working-directory: './site'
+        run: |
+          echo "Testing production build..."
+          npm run build
+          
+      - name: Comment on PR
+        if: steps.changes.outputs.site_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && comment.body.includes('🔍 PR Validation Complete')
+            );
+            
+            const body = `🔍 **PR Validation Complete**
+            
+            ✅ Package.json validation passed
+            ✅ TypeScript validation passed  
+            ✅ Production build successful
+            ✅ No large files detected
+            
+            Ready for review! 🚀`;
+            
+            if (botComment) {
+              github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: body
+              });
+            }

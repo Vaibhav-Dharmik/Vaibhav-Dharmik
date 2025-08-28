@@ -1,0 +1,17 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "react/jsx-key": ["warn", {"checkFragmentShorthand": true}],
+    "@next/next/no-page-custom-font": "off",
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "react/no-unescaped-entities": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}
