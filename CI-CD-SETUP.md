@@ -5,6 +5,7 @@
 Your repository now has a comprehensive CI/CD pipeline with the following workflows:
 
 ### 1. **Main CI/CD Pipeline** (`deploy.yml`)
+
 - **Triggers**: Push to `main` or `dev` branches, PRs to `main`
 - **Jobs**:
   - 🔒 **Security Audit**: Runs npm audit to check for vulnerabilities
@@ -14,6 +15,7 @@ Your repository now has a comprehensive CI/CD pipeline with the following workfl
   - 🌟 **Lighthouse Check**: Performance monitoring post-deployment
 
 ### 2. **PR Validation** (`pr-checks.yml`)
+
 - **Triggers**: Pull requests to `main` or `dev`
 - **Features**:
   - Validates package.json structure
@@ -23,6 +25,7 @@ Your repository now has a comprehensive CI/CD pipeline with the following workfl
   - Automated PR comments with validation results
 
 ### 3. **Dependency Updates** (`dependency-updates.yml`)
+
 - **Triggers**: Weekly schedule (Mondays 9 AM UTC) or manual
 - **Features**:
   - Automatic dependency updates
@@ -41,7 +44,7 @@ To enable automatic Vercel deployments, add these secrets to your GitHub reposit
 
 ```
 VERCEL_TOKEN          # Your Vercel API token
-ORG_ID                # Your Vercel organization ID  
+ORG_ID                # Your Vercel organization ID
 PROJECT_ID            # Your Vercel project ID
 VERCEL_ORG_ID         # Your Vercel organization ID (same as ORG_ID)
 ```
@@ -49,21 +52,23 @@ VERCEL_ORG_ID         # Your Vercel organization ID (same as ORG_ID)
 ### How to get these values:
 
 1. **VERCEL_TOKEN**:
+
    ```bash
    # Install Vercel CLI if not already installed
    npm i -g vercel
-   
+
    # Login and get token
    vercel login
    # Go to https://vercel.com/account/tokens to create a token
    ```
 
 2. **ORG_ID and PROJECT_ID**:
+
    ```bash
    # In your project directory
    cd site
    vercel link
-   
+
    # This creates .vercel/project.json with the IDs
    cat .vercel/project.json
    ```
@@ -71,6 +76,7 @@ VERCEL_ORG_ID         # Your Vercel organization ID (same as ORG_ID)
 ## 📊 Performance Monitoring
 
 The Lighthouse CI integration provides:
+
 - Performance scores
 - Accessibility audits
 - SEO checks
@@ -97,6 +103,7 @@ npm run analyze       # Build with bundle analysis
 ## 🔄 Workflow Features
 
 ### Automatic Features:
+
 - ✅ Security vulnerability scanning
 - ✅ TypeScript type checking
 - ✅ ESLint code quality checks
@@ -107,6 +114,7 @@ npm run analyze       # Build with bundle analysis
 - ✅ PR validation and comments
 
 ### Manual Triggers:
+
 - Dependency update workflow can be triggered manually
 - All workflows support `workflow_dispatch` for manual runs
 
