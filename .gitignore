@@ -1,0 +1,13 @@
+# Portfolio / profile repo ignore rules
+# Node / build artifacts (even though we have no build tooling now)
+node_modules/
+.DS_Store
+*.log
+# OS
+Thumbs.db
+# Env / secrets
+.env
+.env.*
+# IDE
+.vscode/
+.idea/

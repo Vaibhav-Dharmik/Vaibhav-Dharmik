@@ -1,0 +1,91 @@
+<!-- index.html - Static personal portfolio for GitHub profile. Keep semantic, accessible, performant. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vaibhav Dharmik – Portfolio</title>
+    <meta name="description" content="Portfolio of Vaibhav Dharmik – Building performant web experiences." />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" role="banner">
+        <nav class="nav" aria-label="Main navigation">
+            <div class="logo">VD</div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
+                aria-label="Toggle navigation">☰</button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://github.com/Vaibhav-Dharmik" target="_blank" rel="noopener">GitHub ↗</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <h1 id="hero-title" class="gradient-text">Vaibhav Dharmik</h1>
+                    <p class="tagline">Building performant web experiences.</p>
+                    <p class="subtext">I craft clean, accessible user interfaces, design scalable architecture, and
+                        continuously explore new technologies to deliver fast, resilient products that delight users and
+                        grow with business needs.</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn primary">View Projects</a>
+                        <a href="#contact" class="btn ghost">Get in Touch</a>
+                    </div>
+                </div>
+                <figure class="hero-avatar">
+                    <img src="avatar.jpg" alt="Placeholder avatar for Vaibhav Dharmik" width="200" height="200"
+                        loading="lazy" />
+                    <figcaption class="sr-only">Avatar</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <div class="section-head">
+                <h2 id="projects-heading">Projects</h2>
+                <p class="section-sub">Sample work & placeholders. Dynamically rendered.</p>
+            </div>
+            <div id="project-grid" class="project-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+            <div class="section-head">
+                <h2 id="skills-heading">Skills</h2>
+            </div>
+            <ul class="skills-list" role="list">
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Next.js</li>
+                <li>Node.js</li>
+                <li>REST APIs</li>
+                <li>Tailwind</li>
+                <li>GitHub Actions</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+            <div class="section-head">
+                <h2 id="contact-heading">Contact</h2>
+            </div>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>GitHub: <a href="https://github.com/Vaibhav-Dharmik" target="_blank" rel="noopener">@Vaibhav-Dharmik</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>&copy; <span id="year"></span> Vaibhav Dharmik. <span class="mute">All rights reserved.</span></p>
+    </footer>
+</body>
+
+</html>
