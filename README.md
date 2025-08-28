@@ -170,7 +170,7 @@ npm run test          # Run type-check + lint
 This project includes GitHub Actions workflows for:
 
 - 🔒 **Security**: Automated vulnerability scanning
-- ✅ **Quality**: TypeScript validation, ESLint, build testing  
+- ✅ **Quality**: TypeScript validation, ESLint, build testing
 - 🚀 **Deploy**: Preview deployments for PRs, production on main
 - 📊 **Monitor**: Lighthouse performance checks
 
