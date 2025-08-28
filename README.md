@@ -167,33 +167,27 @@ npm run test          # Run type-check + lint
 
 ### CI/CD Pipeline
 
-This project includes a comprehensive GitHub Actions CI/CD pipeline:
+This project includes GitHub Actions workflows for:
 
-- 🔒 **Security Audits**: Automated vulnerability scanning
-- ✅ **Quality Checks**: TypeScript validation, ESLint, build testing
-- 🚀 **Auto Deployments**: Preview deployments for PRs, production on main
-- 📊 **Performance Monitoring**: Lighthouse CI integration
-- 🔄 **Dependency Updates**: Automated weekly dependency updates
+- 🔒 **Security**: Automated vulnerability scanning
+- ✅ **Quality**: TypeScript validation, ESLint, build testing  
+- 🚀 **Deploy**: Preview deployments for PRs, production on main
+- 📊 **Monitor**: Lighthouse performance checks
 
-See [`CI-CD-SETUP.md`](./CI-CD-SETUP.md) for detailed setup instructions.
+**Setup**: Add Vercel secrets (`VERCEL_TOKEN`, `ORG_ID`, `PROJECT_ID`) to GitHub repository settings.
 
 ### Project Structure
 
 ```
 📦 Vaibhav-Dharmik/
 ├── 📁 .github/workflows/   # GitHub Actions CI/CD
-│   ├── 📄 deploy.yml       # Main CI/CD pipeline
-│   ├── 📄 pr-checks.yml    # PR validation
-│   └── 📄 dependency-updates.yml
-├── 📁 site/                # Next.js 14 Portfolio
+├──  site/                # Next.js 14 Portfolio
 │   ├── 📁 app/             # App Router pages
 │   ├── 📁 components/      # React components
 │   ├── 📁 data/           # Project data
 │   ├── 📁 public/         # Static assets
-│   ├── 📄 .lighthouserc.json # Performance config
 │   └── 📄 package.json    # Dependencies
 ├── 📄 README.md           # This file
-├── 📄 CI-CD-SETUP.md      # CI/CD documentation
 └── 📄 .gitignore         # Git ignore rules
 ```
 
