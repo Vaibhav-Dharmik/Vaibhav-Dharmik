@@ -1,20 +1,34 @@
 [
   {
-    "title": "Performance Dashboard",
-    "description": "A lightweight analytics UI showing real-time Web Vitals trends.",
-    "tech": ["TypeScript", "React", "Web Vitals"],
-    "url": "https://example.com/performance-dashboard"
+    "title": "JobConnect — Job Marketplace Platform",
+    "description": "Full-stack job portal with JWT-secured microservices, supporting 1000s of listings with role-based access control and 25–30% optimized search performance.",
+    "tech": ["Java", "Spring Boot", "React", "Docker", "MySQL", "JWT", "RBAC"],
+    "url": "https://github.com/Vaibhav-Dharmik/jobconnect"
   },
   {
-    "title": "Serverless Image Proxy",
-    "description": "Edge function that optimizes & caches images on-the-fly for responsive delivery.",
-    "tech": ["Node.js", "Edge", "CDN"],
-    "url": "https://example.com/image-proxy"
+    "title": "Eazy-Store — E-Commerce Platform",
+    "description": "Production e-commerce system with secure payment integration, inventory management, and 20–25% frontend performance optimization through Next.js.",
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "Next.js",
+      "MongoDB",
+      "Payment APIs",
+      "Docker"
+    ],
+    "url": "https://github.com/Vaibhav-Dharmik/eazy-store"
   },
   {
-    "title": "This Profile Repo",
-    "description": "Source for my GitHub profile README and Next.js + Tailwind portfolio site.",
-    "tech": ["Next.js", "Tailwind", "TypeScript"],
-    "url": "https://github.com/Vaibhav-Dharmik/Vaibhav-Dharmik"
+    "title": "Enterprise API Modernization (IBM)",
+    "description": "Migrated legacy MuleSoft APIs to Spring Boot microservices, reducing latency by 35–40% and cutting deployment time by 50% via OpenShift CI/CD.",
+    "tech": [
+      "Java 8",
+      "Spring Boot",
+      "Oracle",
+      "OpenShift",
+      "Jenkins",
+      "Docker"
+    ],
+    "url": ""
   }
 ]
